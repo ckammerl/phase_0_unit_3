@@ -23,6 +23,8 @@
 ## Release 4: Design your own Schema
 Description of what you're modeling: 
 
+![my_schema](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/imgs/my_schema.jpg?raw=true)
+
 One-to-One relation established between tables: 
 'Friends' and 'ContactDetails' as well as 
 'FamilyMembers' and 'ContactDetails'; 
