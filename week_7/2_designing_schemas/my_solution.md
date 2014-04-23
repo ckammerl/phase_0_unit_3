@@ -49,3 +49,11 @@ Many-to-Many relation established between tables:
 <!-- display your many-to-many image inline here -->
 
 ## Release 5: Reflection
+
+Did you learn any new skills or tricks?
+Creating the schemas worked very well, the tool is easy to quiet easy to handle. What I practiced and now fully understand is how to establish foreign keys in related tables; and that a foreign key's root is always a Primary Key (id) of another/related table.
+
+How confident are you with each of the Learning Competencies?
+Create a graphical representation of a simple database - confident
+Identify database relationships including one to many, many to many, and one to one - confident, but definitely need more practice to identify relations much faster
+
