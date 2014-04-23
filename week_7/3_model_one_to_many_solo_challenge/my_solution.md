@@ -33,7 +33,7 @@ I made a difference how/ when information can be accessed by users: PUBLIC (not 
 
 FINAL Version 2 (used for SQL statements below)
 
-![final]()
+![final](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/imgs/final_twitter_schema.jpg?raw=true)
 
 ## Release 4: SQL Statements
 <!-- Include your SQL Statements. How can you make markdown files show blocks of code? -->
