@@ -26,9 +26,42 @@ The relationship between user and its tweets is a one-to-many; each user can hav
 
 ## Release 3: Schema Design
 <!-- Include your image (inline) of your schema -->
+DRAFT Version 1
+![twitter_schema](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/imgs/twitter_schema.jpg?raw=true)
+
+I made a difference how/ when information can be accessed by users: PUBLIC (not logged in) and PRIVATE (logged in)
+
+FINAL Version 2 (used for SQL statements below)
+
+![final]()
 
 ## Release 4: SQL Statements
 <!-- Include your SQL Statements. How can you make markdown files show blocks of code? -->
 
+
+Access your tables and return all the tweets for a certain user id
+SELECT tweet_message
+FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
+WHERE user_details_id = 500;
+
+
+Access your tables and return the tweets for a certain user id that were made after last Wednesday (whenever last Wednesday was for you)
+SELECT tweet_message
+FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
+WHERE user_details_id = 2085 AND date_of_tweet BETWEEN '2014-04-16' AND '2014-04-23';
+
+Access your tables and return all the tweets associated with a given user's twitter handle
+SELECT tweet_message
+FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
+WHERE user_name = 'cpMunich';
+
+Access your tables and return the twitter handle associated with a given tweet id
+SELECT user_name
+FROM UserDetails JOIN Tweets ON (user_details_id = author_id)
+WHERE tweet_id = 49;
+
+
 ## Release 5: Reflection
 <!-- Be sure to add your reflection here!!! -->
+
+It was great to use a real world example/ app like Twitter as basis to develop a schema. As I can see, I developed two versions (schemas) as I wanted to created tables and contents which are accessible under different (public/ private) conditions; However, my second version has no restrictions and I implemented only the case where all data can be accessed. What I learned is how important it is to choose good AND different names for Primary Keys as well as for Foreign Keys. I am not completely sure yet about the data type to choose for each field - for instance what data type for email or lists (they can contain more than one data type.) What I recognized is that it is very easy to overthink a schema.. Starting small and THEN extending/ broading is the way to go.
