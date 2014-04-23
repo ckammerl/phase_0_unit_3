@@ -2,6 +2,11 @@
 
 ## Release 0: Users Fields
 <!-- Identify the fields Twitter collects data for -->
+tweets
+following
+follower
+favorites
+lists
 
 ## Release 1: Tweet Fields
 <!-- Identify the fields Twitter uses to represent/display a tweet. What are you required or allowed to enter? -->
