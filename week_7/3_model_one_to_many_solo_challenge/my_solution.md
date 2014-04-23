@@ -22,6 +22,7 @@ Hash tags
 ## Release 2: Explain the relationship
 The relationship between `users` and `tweets` is: 
 <!-- because... -->
+The relationship between user and its tweets is a one-to-many; each user can have multiple tweets and each tweet will be connected/assigned to the individual user; However when a user is retweeting the exact tweet  of another user, the relation of this tweet is again one-to-many, i.e. one tweet (re-)tweeted by many users. As a results we have a many-to-many relationship: one users has many tweets, and one of these tweets can be on many user accounts.
 
 ## Release 3: Schema Design
 <!-- Include your image (inline) of your schema -->
