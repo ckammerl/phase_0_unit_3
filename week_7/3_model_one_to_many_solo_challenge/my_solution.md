@@ -15,14 +15,14 @@ lists;
 
 ## Release 1: Tweet Fields
 <!-- Identify the fields Twitter uses to represent/display a tweet. What are you required or allowed to enter? -->
-Buttom (nav, top right)
-text field (sidebar, top left)
-retweet (tweet timeline)
+Buttom (nav, top right);
+text field (sidebar, top left);
+retweet (tweet timeline);
 
-Max num char = 140 (incl. external link)
-Add image
-Add location
-Hash tags
+Max num char = 140 (incl. external link);
+Add image;
+Add location;
+Hash tags;
 
 ## Release 2: Explain the relationship
 The relationship between `users` and `tweets` is: 
@@ -32,9 +32,11 @@ The relationship between user and its tweets is a one-to-many; each user can hav
 ## Release 3: Schema Design
 <!-- Include your image (inline) of your schema -->
 DRAFT Version 1
-![twitter_schema](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/imgs/twitter_schema.jpg?raw=true)
+(I made a difference how/ when information can be accessed by users: PUBLIC (not logged in) and PRIVATE (logged in))
 
-I made a difference how/ when information can be accessed by users: PUBLIC (not logged in) and PRIVATE (logged in)
+![twitter_schema](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/imgs/v1_twitter_schema.jpg?raw=true)
+
+
 
 FINAL Version 2 (used for SQL statements below)
 
@@ -45,25 +47,25 @@ FINAL Version 2 (used for SQL statements below)
 
 
 Access your tables and return all the tweets for a certain user id
-SELECT tweet_message
+<pre>SELECT tweet_message
 FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
-WHERE user_details_id = 500;
+WHERE user_details_id = 500;</pre>
 
 
-Access your tables and return the tweets for a certain user id that were made after last Wednesday (whenever last Wednesday was for you)
+Access your tables and return the tweets for a certain user id that were made after last Wednesday (whenever last <pre>Wednesday was for you)
 SELECT tweet_message
 FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
-WHERE user_details_id = 2085 AND date_of_tweet BETWEEN '2014-04-16' AND '2014-04-23';
+WHERE user_details_id = 2085 AND date_of_tweet BETWEEN '2014-04-16' AND '2014-04-23';</pre>
 
 Access your tables and return all the tweets associated with a given user's twitter handle
-SELECT tweet_message
+<pre>SELECT tweet_message
 FROM Tweets JOIN UserDetails ON (author_id = user_details_id)
-WHERE user_name = 'cpMunich';
+WHERE user_name = 'cpMunich';</pre>
 
 Access your tables and return the twitter handle associated with a given tweet id
-SELECT user_name
+<pre>SELECT user_name
 FROM UserDetails JOIN Tweets ON (user_details_id = author_id)
-WHERE tweet_id = 49;
+WHERE tweet_id = 49;</pre>
 
 
 ## Release 5: Reflection
