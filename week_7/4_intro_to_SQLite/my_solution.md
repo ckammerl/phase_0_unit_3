@@ -35,9 +35,36 @@ sqlite></pre>
 
 ## Release 2: Multi-line commands
 <!-- paste your terminal output here -->
+<pre>sqlite> INSERT INTO users
+   ...> (first_name, last_name, email, created_at, updated_at)
+   ...> VALUES
+   ...> ('Kimmey', 'Lin', 'kimmy@devbootcamp.com', DATETIME('now'), DATETIME('now'));
+Error: column email is not unique
+sqlite></pre> 
+
 
 ## Release 3: Add a column
 <!-- paste your terminal output here -->
+<pre>sqlite> ALTER TABLE users ADD COLUMN nickname VARCHAR(26);</pre>
+
+<pre>sqlite> UPDATE users
+   ...> SET nickname = 'Kimmey'
+   ...> WHERE id=1;
+sqlite> UP
+   ...> UP
+   ...> ;
+Error: near "UP": syntax error
+sqlite> UPDATE users
+   ...> SET nickname = 'Chris'
+   ...> WHERE id = 2;
+sqlite> SELECT * FROM users;
+id          first_name  last_name   email                  created_at           updated_at           nickname  
+----------  ----------  ----------  ---------------------  -------------------  -------------------  ----------
+1           Kimmey      Lin         kimmy@devbootcamp.com  2014-04-24 19:40:20  2014-04-24 19:40:20  Kimmey    
+2           Christiane  Kammerl     christiane.kammerl@gm  2014-04-24 19:45:25  2014-04-24 19:45:25  Chris     
+sqlite>,</pre> 
+
+
 
 ## Release 4: Change a value
 <!-- paste your terminal output here -->
