@@ -68,11 +68,11 @@ sqlite>,</pre>
 
 ## Release 4: Change a value
 <!-- paste your terminal output here -->
-<pre>sqlite> UPDATE users SET first_name='Kimmy', nickname='Ninja Coder' WHERE id=1;
+<pre>sqlite> UPDATE users SET first_name='Kimmy', nickname='Ninja Coder', updated_at=DATETIME('now') WHERE id=1;
 sqlite> SELECT * FROM users;
 id          first_name  last_name   email                  created_at           updated_at           nickname   
 ----------  ----------  ----------  ---------------------  -------------------  -------------------  -----------
-1           Kimmy       Lin         kimmy@devbootcamp.com  2014-04-24 19:40:20  2014-04-24 19:40:20  Ninja Coder
+1           Kimmy       Lin         kimmy@devbootcamp.com  2014-04-24 19:40:20  2014-04-24 20:40:58  Ninja Coder
 2           Christiane  Kammerl     christiane.kammerl@gm  2014-04-24 19:45:25  2014-04-24 19:45:25  Chris      
 sqlite></pre> 
 
