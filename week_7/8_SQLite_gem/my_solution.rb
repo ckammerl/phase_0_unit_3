@@ -1,6 +1,6 @@
 # U3.W7: BONUS Using the SQLite Gem
 
-# I worked on this challenge [by myself, with:]
+# I worked on this challenge [with Shawn Seibert]
 
 require 'sqlite3'
 
@@ -16,12 +16,29 @@ end
 
 def print_longest_serving_reps(minimum_years)  #sorry guys, oracle needs me, i didn't finish this!
   puts "LONGEST SERVING REPRESENTATIVES"
-  puts $db.execute("SELECT name FROM congress_members WHERE years_in_congress > #{minimum_years}")
+  arg = minimum_years
+  if arg.class == Integer #added if statement to check and validate input to avoid SQL injection
+    reps_years = $db.execute("SELECT name, years_in_congress FROM congress_members WHERE years_in_congress > ?", "#{arg}") #using placehoder for the query
+    reps_years.each { |rep_year| puts rep_year[0] + " - " + rep_year[1].to_s }
+  end 
 end
 
 def print_lowest_grade_level_speakers
-  puts "LOWEST GRADE LEVEL SPEAKERS (less than < 8th grade)"
+   puts "LOWEST GRADE LEVEL SPEAKERS (less than < 8th grade)"
+   grade_level = $db.execute("SELECT grade_current FROM congress_members WHERE grade_current < 8")
+   puts grade_level
 end
+
+def print_state_reps(*states)
+  puts "REPRESENTATIVES by SELECT STATE"
+  states.each do |state| #iterating through given list of arguments (*states)
+  	if state.length == 2 #checking/ validating length of input to avoid SQL injection
+  	reps = $db.execute("SELECT name FROM congress_members WHERE location = ?", "#{state}") #using placeholder for the query
+    reps.each { |rep| puts rep[0] + " - " + state }
+    end
+  end 
+end 
+
 
 def print_separator
   puts 
@@ -42,6 +59,8 @@ print_separator
 print_lowest_grade_level_speakers 
 # TODO - Need to be able to pass the grade level as an argument, look in schema for "grade_current" column
 
+print_separator
+print_state_reps('NJ', 'NY', 'MI', 'FL', 'AL')
 # TODO - Make a method to print the following states representatives as well:
 # (New Jersey, New York, Maine, Florida, and Alaska)
 
@@ -53,6 +72,7 @@ print_lowest_grade_level_speakers
 # Create a listing of all of the Politicians and the number of votes they recieved
 # output should look like:  Sen. John McCain - 7,323 votes (This is an example, yours will not return this value, it should just 
 #    have a similar format)
+
 # Create a listing of each Politician and the voter that voted for them
 # output should include the senators name, then a long list of voters separated by a comma
 #
