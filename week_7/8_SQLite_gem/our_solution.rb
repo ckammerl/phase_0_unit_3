@@ -46,7 +46,6 @@ def print_politicians_votes
 end 
 
 
-
 def print_politicians_with_voters
   puts "REPRESENTATIVE AND VOTERS"
   reps = $db.execute("SELECT congress_members.name, congress_members.id FROM congress_members")
@@ -59,6 +58,23 @@ def print_politicians_with_voters
   end 
 end
 
+#Alternative Solution
+
+=begin
+def print_politicians_voters
+  puts "POLITICIANS AND ALL VOTERS"
+  reps = $db.execute("SELECT name FROM congress_members")
+  reps.each do |rep|
+    rep_name = rep[0] 
+    voters = $db.execute("SELECT voters.first_name || ' ' || last_name AS full_name FROM voters JOIN votes ON voters.id = votes.voter_id JOIN congress_members ON congress_members.id = votes.politician_id WHERE congress_members.name = ?", "#{rep_name}")
+    print rep_name 
+    puts ": "
+    voters.each { |voter| print voter[0] + ", "}
+    puts
+    puts 
+  end
+end 
+=end 
 
 def print_separator
   puts 
@@ -89,6 +105,11 @@ print_politicians_votes
 
 print_separator
 print_politicians_with_voters
+#Alternative Solution
+#print_politicians_voters
+
+
+
 ##### BONUS #######
 # TODO (bonus) - Stop SQL injection attacks!  Statmaster learned that interpolation of variables in SQL statements leaves some security vulnerabilities.  Use the google to figure out how to protect from this type of attack.
 
