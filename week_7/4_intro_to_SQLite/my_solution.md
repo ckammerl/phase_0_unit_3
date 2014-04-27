@@ -78,7 +78,7 @@ sqlite></pre>
 
 ## Release 5: Reflect
 <!-- Add your reflection here -->
-The turorial you referenced <a href="http://zetcode.com/db/sqlite/"> is great and you can easily look up statements/ functions. Using sqlite in the terminal was something completely new but after a short while I got the feeling for it. It's great to create your own db, to play around with sql key commands and to get used to how they work. I feel confident about SQLite, I understood key components and syntax; however only more exercises will help me memorize it. It felt good though that the research I did was successful. I found the correct answer to my questions in a short time.<br> 
+The turorial you referenced <a href="http://zetcode.com/db/sqlite/">zetcode</a> is great and you can easily look up statements/ functions. Using sqlite in the terminal was something completely new but after a short while I got the feeling for it. It's great to create your own db, to play around with sql key commands and to get used to how they work. I feel confident about SQLite, I understood key components and syntax; however only more exercises will help me memorize it. It felt good though that the research I did was successful. I found the correct answer to my questions in a short time.<br> 
  
 Did you learn any new skills or tricks?<br>
 ALTER TABLE table_name RENAME TO new_table_name;<br>
