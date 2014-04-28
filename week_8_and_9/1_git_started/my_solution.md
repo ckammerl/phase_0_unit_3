@@ -74,7 +74,7 @@ see overview of staged and unstaged files
 
 =======
 
-## Release 3: Git Workflow
+## Release 4: Git Workflow
 ```
 - local commits 
 
@@ -98,3 +98,10 @@ see overview of staged and unstaged files
 
 or: git pull origin branch (fetch and merge in one step)
 ```
+
+### Release 5: Reflect
+Not having used the terminal to push and fetch/ merge changes for a while, it was helpful to review the tutorials. Writing my own cheatsheet with the right GitWorkflow helped me a lot to understand it. I'm sure I'll come back to my cheatsteet a couple of times, but I after having used the terminal and not the app for a week, I believe I'll have memorized the commands.
+
+What resources did you find to help you answer them?
+There are so many git/GitHub tutorials out there, and I don't find many of them extremely helpful. Clear, short and easy to understand is the <a href="https://help.github.com/articles/syncing-a-fork">GitHub Help</a> 
+
