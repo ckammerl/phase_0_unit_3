@@ -75,7 +75,26 @@ see overview of staged and unstaged files
 =======
 
 ## Release 3: Git Workflow
+```
+- local commits 
 
-- Push files to a remote repository
-- Fetch changes
-- Commit locally
+1. mkdir dir_name => local branch (master)
+2. cd dir_name
+3. git init
+4. git add file_name (=> stage file - local)
+5. git commit -m "TEXT" (=> commit - local)
+
+-push to GitHub 
+
+6. create remote repo at GitHub (origin)
+7. git remote add origin URL (=> link local branch with GitHub)
+8. git push origin master (=> upload complete local branch to GitHub)
+(possible to use git push only after first push)
+
+- fetch and merge changes made on the remote branch with the changes I made locally
+
+1. git fetch origin (fetch changes made to online repo, i.e. GitHub)
+2. git merge origin branch (merge updates of online repo with local work)
+
+or: git pull origin branch (fetch and merge in one step)
+```
