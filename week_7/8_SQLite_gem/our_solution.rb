@@ -66,6 +66,7 @@ def print_politicians_voters
   reps = $db.execute("SELECT name FROM congress_members")
   reps.each do |rep|
     rep_name = rep[0] 
+    #Using the symbol || as a shortcut to concatenate first_name with ' '  then again with last_name. When concatenation is used, "AS new_column_name" is added to identify  the created column name.
     voters = $db.execute("SELECT voters.first_name || ' ' || last_name AS full_name FROM voters JOIN votes ON voters.id = votes.voter_id JOIN congress_members ON congress_members.id = votes.politician_id WHERE congress_members.name = ?", "#{rep_name}")
     print rep_name 
     puts ": "
