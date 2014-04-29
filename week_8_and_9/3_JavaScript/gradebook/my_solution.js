@@ -7,7 +7,7 @@ variables match (i.e., 'Joseph' is the first element in students; his scores are
 
 Do not alter the students and scores code.
 
-I worked on this challenge [by myself, with:]
+I worked on this challenge [by myself]
 
 */
 
@@ -19,13 +19,49 @@ var scores = [ [80, 70, 70, 100],
                [100, 90, 95, 85] ]
 
 
-
-
-
-
 // __________________________________________
 // Write your code below.
 
+
+var average = function(arr_of_num) {
+  var sum = 0
+  for (var i = 0; i < arr_of_num.length; i++) {
+    sum = sum + arr_of_num[i];
+  }
+  return sum / arr_of_num.length;
+};
+
+
+var update_student_score = function(student, new_score) {
+  for (var i = 0; i < students.length; i++) {
+    if (student === students[i]) {
+      scores[i].push(new_score);
+      break;
+    }
+  }
+};
+
+var average_of_student = function(student) {
+  for (var i = 0; i < students.length; i++) {
+    if (student === students[i]) {
+      return average(scores[i]);
+    }
+  }
+}
+
+
+var create_gradebook = function(arr_students, arr_scores) {
+  var book = {}
+  for (var i = 0; i < arr_students.length; i++) {
+    book[arr_students[i]] = {testScores: arr_scores[i]}
+  }
+  book.addScore = update_student_score;
+  book.getAverage = average_of_student;
+  return book;
+};
+
+
+var gradebook = create_gradebook(students, scores);
 
 
 
@@ -34,22 +70,69 @@ var scores = [ [80, 70, 70, 100],
 // __________________________________________
 // Refactored Solution
 
+var average = function(arr_num) {  /*changed var name*/
+  var sum = 0
+  for (var i = 0; i < arr_num.length; i++) {
+    sum = sum + arr_num[i];
+  }
+  return sum / arr_num.length;
+};
+
+
+var update_student_score = function(student, new_score) {
+  for (var i = 0; i < students.length; i++) {
+    if (student === students[i]) {
+      scores[i].push(new_score);
+      break;
+    }
+  }
+};
+
+var average_of_student = function(student) {
+  for (var i = 0; i < students.length; i++) {
+    if (student === students[i]) {
+      return average(scores[i]);
+    }
+  }
+}
+
+
+var create_gradebook = function(arr_students, arr_scores) {
+  var book = {}
+  for (var i = 0; i < arr_students.length; i++) {
+    book[arr_students[i]] = {testScores: arr_scores[i]}
+  }
+  book.addScore = update_student_score;
+  book.getAverage = average_of_student;
+  return book;
+};
+
+
+var gradebook = create_gradebook(students, scores);
 
 
 
-
+/* the initial solution is DRY and I didn't refactore the solution furher*/
 
 
 
 // __________________________________________
 // Reflect
+/*
+What parts of your strategy worked? What problems did you face?
+I had to review the the tutorial at http://www.sitepoint.com/back-to-basics-javascript-object-syntax/ to remind myself of the
+syntax. Using the for loop went pretty well and I came up with the right solution right away. Creating the function create_gradebook took
+me the longest; I frist wrote the var gradebook directly and integrated the for loop and the function calls in it. But that
+didn't work and I came up with a solution that used another function to build/ create the gradebook.
 
+How confident are you with each of the Learning Competencies?
+Define local variables in JavaScript - confident
+Define functions in JavaScript - confident
+Create, add properties to, delete properties from, and access values in object literals - confident, but I need to do more exercises.
 
+Which parts of the challenge did you enjoy? all of it
 
-
-
-
-
+*/
 
 
 // __________________________________________
