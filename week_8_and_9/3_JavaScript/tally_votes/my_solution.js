@@ -1,6 +1,6 @@
 // U3.W8-9: Gradebook from Names and Scores
 
-// I worked on this challenge [by myself, with:]
+// I worked on this challenge [by myself]
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
