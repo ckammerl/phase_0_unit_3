@@ -32,7 +32,10 @@ var votes = {
   "Zane": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Mary" }
 }
 
+
 // Tally the votes in voteCount.
+
+/*
 var voteCount = {
   president: {},
   vicePresident: {},
@@ -40,7 +43,7 @@ var voteCount = {
   treasurer: {}
 }
 
-/* The name of each student receiving a vote for an office should become a property 
+The name of each student receiving a vote for an office should become a property 
 of the respective office in voteCount.  After Alex's votes have been tallied, 
 voteCount would be ...
 
@@ -51,44 +54,224 @@ voteCount would be ...
     treasurer: { Kerry: 1 }
   }
 
-*/
+Once the votes have been tallied, assign each officer position the name of the 
+student who received the most votes. 
 
-
-/* Once the votes have been tallied, assign each officer position the name of the 
-student who received the most votes. */
 var officers = {
   president: undefined,
   vicePresident: undefined,
   secretary: undefined,
   treasurer: undefined
 }
+*/
+
 
 // Pseudocode
+/*
+Write function createVoteCount that takes votes as parameter
+Set var result eql to new object whose values are objects itself
+  FOR var studentName in votes do
+      studentVotes eql votes[studentName]
+
+      FOR var position in studentVotes do
+        var votedFor = student[position]
+        studentVotes[votedFor] = studentVotes[position] 
+          IF result[position] has a key whose value is votedFor do
+           within result, increment the num of votes for the key student (votedFor) by one
+          ELSE create the key student (votedFor) in result and set it eql to one
+          END
+      END
+  END
+  return result
+END
+  
+SET var voteCount eql function createVoteCount(votes)
+
+
+WRITE a function function that takes voteCount as parameter and set it eql to var createOfficers  
+Set var var winner eql to an object with the keys:
+  president
+  vicePresident
+  secretary
+  treasurer
+  all keys's values are undefined
+  FOR var position in voteCount do
+   SET var studentsAndVotes eql to the value of the key voteCount[position]
+   SET var maxScore eql to 0            
+   SET var winnerName eql to undefined  
+
+    FOR var studentName in studentsAndVotes do
+     SET var score eql to the value of the key studentsAndVotes[studentName]
+      IF (score greater than maxScore) do
+          SET maxScore eql score
+          SET winnerName eql studentName
+      END
+    
+    SET value of key winner[position] eql to winnerName
+  END
+  return winner
+END
+
+SET var officers eql to function createOfficers(voteCount)
+
+*/
+
 
 
 // __________________________________________
 // Initial Solution
+/*
+var createVoteCount = function(votes) {
+  var result = {
+     president: {},
+     vicePresident: {},
+     secretary: {},
+     treasurer: {}
+  }
+
+  for (var studentName in votes) {            //var student is key in votes
+    var studentVotes = votes[studentName];    // var studentVotes is value (object)
+     for (var position in studentVotes) {
+      var votedFor = studentVotes[position]
+
+      if (result[position].hasOwnProperty(votedFor)) {
+        result[position][votedFor] = result[position][votedFor] + 1
+      } else {
+        result[position][votedFor] = 1
+      }  
+    }
+  }
+  return result
+}
 
 
+var voteCount = createVoteCount(votes)
+console.log(voteCount)
 
 
+var createOfficers = function(voteCount) {
+  var winner = {
+  president: undefined,
+  vicePresident: undefined,
+  secretary: undefined,
+  treasurer: undefined
+  }
 
+  for (var position in voteCount) {
+    var studentsAndVotes = voteCount[position]
+    var maxScore = 0            
+    var winnerName = undefined  
 
+    for (var studentName in studentsAndVotes) {
+       var score = studentsAndVotes[studentName]
+       
+       if (score > maxScore) {
+          maxScore = score
+          winnerName = studentName
+       }
+    }
+    winner[position] = winnerName
+  }
+  return winner
+}
+
+var officers = createOfficers(voteCount)
+console.log(officers)
+
+*/
 
 // __________________________________________
 // Refactored Solution
 
+var createVoteCount = function(votes) {
+  var result = {
+     president: {},
+     vicePresident: {},
+     secretary: {},
+     treasurer: {}
+  }
+
+  for (var studentName in votes) {            //var studentName is key in votes
+    var studentVotes = votes[studentName];    // var studentVotes is value of votes[studentName] which is an object!
+     for (var position in studentVotes) {
+      var votedFor = studentVotes[position]
 
 
+// changed if statement (!) in order to switch logic in if/else statements
+      if (!result[position].hasOwnProperty(votedFor)) {  // for instance, if result.president has not yet a key/value pair assigned
+        result[position][votedFor] = 1 // then result.president.Bob = 1 or var result = {president: {"Bob": 1}}
+      } else {
+        result[position][votedFor] = result[position][votedFor] + 1
+      }  
+    }
+  }
+  return result
+}
+
+var voteCount = createVoteCount(votes)
+console.log(voteCount)
+
+
+var createOfficers = function(voteCount) {
+  var winner = {
+  president: undefined,
+  vicePresident: undefined,
+  secretary: undefined,
+  treasurer: undefined
+  }
+
+  for (var position in voteCount) {
+    var studentsAndVotes = voteCount[position]
+    var maxScore = 0            // var maxScore is visible for all FOLLOWING (LOWER) level, i.e. following for loop and if statement
+    var winnerName = undefined  // var winnerNamer is visible for all FOLLOWING (LOWER) level, i.e. following for loop and if statement
+                                // because we can look 'up' at higher levels;
+                                // but at this level (this for loop) I don't have visibility, i.e. access to any var of lower levels  
+                                // because we can't look 'down' at lower the levels
+
+    for (var studentName in studentsAndVotes) {
+       var score = studentsAndVotes[studentName]
+       
+       if (score > maxScore) {
+          maxScore = score
+          winnerName = studentName
+       }
+    }
+    winner[position] = winnerName
+  }
+  return winner
+}
+
+var officers = createOfficers(voteCount)
+console.log(officers)
 
 
 
 // __________________________________________
 // Reflection
+/*
+What parts of your strategy worked? What problems did you face?
+I found it difficult to write the pseudocode as thinking all functions through without writing them wasn't so easy for me.
+I went back to update/ finish the pseudocode after I finlized the initial solution. The tests/ asserts were very helpful for 
+developing the right solution.
+
+What questions did you have while coding? What resources did you find to help you answer them?
+I needed the resources you suggested to understand the for ..in loop:
+http://stackoverflow.com/questions/921789/how-to-loop-through-javascript-object-literal-with-objects-as-members
+http://www.sitepoint.com/back-to-basics-javascript-object-syntax/
+
+What concepts are you having trouble with, or did you just figure something out? If so, what?
+Did you learn any new skills or tricks?
+I feel more and more confident in using for / for..in loops in JS. It still takes some time to develop the functions
+and to write the pseudocode. This challenge helped me to look deeper at the scope of variables in order to use for loops 
+correctly (or better make them successfully work)
+
+How confident are you with each of the Learning Competencies?
+Define local variables in JavaScript confident
+Define functions in JavaScript confident, but for loops needs further practice 
+Create, add properties to, delete properties from, and access values in object literals - getting there
 
 
-
-
+*/
 
 
 // __________________________________________
