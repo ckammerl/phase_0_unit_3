@@ -218,6 +218,7 @@ assert { in_words(100) == "hundred " }
 What parts of your strategy worked? What problems did you face?
 I think it's obvious, my first solution wasn't the best one :) But it was a good exercise for me as I used severeal for loops
 and really understood the scope of different variables. I enjoyed developing it. The refactored, or better the second solution is much
+shorter, DRY and does the same job.
 
 Did you learn any new skills or tricks?
 I used this challenge to improve my skills in using for loops as well as modulo.
