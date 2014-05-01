@@ -2,7 +2,7 @@
 
 # I worked on this challenge [with Shawn Seibert]
 
-Please see our solution at <a href="https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/8_SQLite_gem/our_solution.rb">w_7 GitHub</a>.
+# Please see our solution in w_7 GitHub https://github.com/ckammerl/phase_0_unit_3/blob/master/week_7/8_SQLite_gem/our_solution.rb
 
 
 
