@@ -79,9 +79,9 @@ end
 class Rectangle
   attr_accessor :width, :height
 
-  def initialize(width, height)
-    @width  = width
-    @height = height
+  def initialize(w, h)
+    @width  = w
+    @height = h
   end
 
   def area
