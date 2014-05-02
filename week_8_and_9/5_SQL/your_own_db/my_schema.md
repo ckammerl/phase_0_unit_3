@@ -1,0 +1,1 @@
+![world_schema](https://github.com/ckammerl/phase_0_unit_3/blob/master/week_8_and_9/5_SQL/your_own_db/world_schema.jpg?raw=true)
