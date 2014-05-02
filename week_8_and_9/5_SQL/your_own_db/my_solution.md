@@ -32,7 +32,7 @@ id          country_name  continent_id  city_id     created_at           updated
 sqlite> 
 </pre>
 
-```
+
 
 CREATE 3 tables
 
