@@ -15,7 +15,7 @@ They did both, you see examples of:
 <pre>
 inline layout: 'style' like 'td style="width:18px;padding-right:4px"' 
 layout definitions in CSS:  class '.pagetop', URL's like 'a:hover' and a font definition for the whole 'body'
-</pre><br>
+</pre>
 
 4) Did the authors include anything you didn't immediately understand? 
 If so, what?
@@ -34,8 +34,8 @@ I looked up the 'get' method and the tag 'input' they used to create the "Search
     <input type=text name="q" value="" size=17>
  </form>
 ```
-The link '//hn.algolia.com' is where the form (input) will be sent;<br>  
-the tag 'input' creates the field where input will be entered;<br>
+The link '//hn.algolia.com' is where the form (input) will be sent;
+the tag 'input' creates the field where input will be entered;
 
  
 5) How did the authors organize the CSS file? Was it DRY?
@@ -52,12 +52,13 @@ I was not a fan of tables and this page's html did not change that, to the contr
 ## REFLECTION
 The challenge was a great way to recap html and css best practices, including responsive design. 
 
-What questions did you have while coding? What resources did you find to help you answer them?
-decompressing html and css:
+What questions did you have while coding? What resources did you find to help you answer them? <br>
+Resources for decompressing/ beautifying html and css:<br>
 <a href="http://www.textfixer.com/html/uncompress-html-code.php">HTML</a><br>
 <a href="http://www.codebeautifier.com/">CSS</a><br>
 <a href="https://github.com/akalongman/sublimetext-codeformatter">GitHub</a><br>
 
+W3School:
 <a href="http://www.w3schools.com/tags/att_form_method.asp">HTML - Submit a form using the "get" method</a>
 
 ```
@@ -69,4 +70,4 @@ decompressing html and css:
 
 ```
 
-How confident are you with each of the Learning Competencies? confident, but I'll read more about improving structure, especially structuring my CSS.
+How confident are you with each of the Learning Competencies?<br>confident, but I'll read more about improving structure, especially structuring my CSS.
